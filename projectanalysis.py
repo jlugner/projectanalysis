@@ -13,4 +13,4 @@ for root, dirs, files in os.walk("./"):
     for file in files:
         fileName, fileExtension = os.path.splitext(file)
         if fileExtension in VALID_EXSTENSIONS:
-             print ("Path:", root, "File:", file, "Length:", file_length(file))
+             print ("Path:", root, "File:", file, "Length:", file_length(root + file))
