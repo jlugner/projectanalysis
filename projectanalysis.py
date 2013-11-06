@@ -1,4 +1,5 @@
 import os
+
 VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m"]
 COMMENT_INDICATORS = ["/*", "#", "//", "{-", "--"]
 
@@ -16,9 +17,12 @@ def is_comment(str):
     return False
 
 # Main program #
+extensions_map = dict((k,0) for k in VALID_EXSTENSIONS)
+
 for root, dirs, files in os.walk("./"):
     for file in files:
         fileName, fileExtension = os.path.splitext(file)
         fullPath = os.path.join(root, file)
         if fileExtension in VALID_EXSTENSIONS:
-             print ("File: " + fullPath + " Length: " +  str(file_length(fullPath)))
+             extensions_map[fileExtension] += file_length(fullPath)
+print(extensions_map)
