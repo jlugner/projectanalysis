@@ -1,6 +1,6 @@
 import os
 
-VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m"]
+VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m", ".hs"]
 COMMENT_INDICATORS = ["/*", "#", "//", "{-", "--"]
 
 def file_length(file_path):
