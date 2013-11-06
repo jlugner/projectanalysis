@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 
 VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m", ".hs"]
