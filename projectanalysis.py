@@ -27,4 +27,7 @@ for root, dirs, files in os.walk("./"):
         fullPath = os.path.join(root, file)
         if fileExtension in VALID_EXSTENSIONS:
              extensions_map[fileExtension] += file_length(fullPath)
-print(extensions_map)
+
+print("Number of rows of code:")
+for  key, val in extensions_map.iteritems():
+    if not val == 0: print(key + ": " + str(val))
