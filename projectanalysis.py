@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import operator
 
 VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m", ".hs"]
 COMMENT_INDICATORS = ["/*", "#", "//", "{-", "--"]
@@ -29,5 +30,6 @@ for root, dirs, files in os.walk("./"):
              extensions_map[fileExtension] += file_length(fullPath)
 
 print("Number of rows of code:")
-for  key, val in extensions_map.iteritems():
+sorted_map = sorted(extensions_map.iteritems(), key=operator.itemgetter(1))
+for  key, val in sorted_map:
     if not val == 0: print(key + ": " + str(val))
