@@ -2,32 +2,25 @@
 
 import os
 import operator
+import argparse
+import file_operations as fo
 
 VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m", ".hs"]
-COMMENT_INDICATORS = ["/*", "#", "//", "{-", "--"]
 
-def file_length(file_path):
-    with open(file_path) as f:
-        rowCount = 0
-        for i, l in enumerate(f):
-            if len(l) > 1 and not is_comment(l[:2]): rowCount +=1
-    return rowCount
+# Main program, argument parsing#
+parser = argparse.ArgumentParser()
+parser.parse_args()
 
-def is_comment(str):
-    for comment in COMMENT_INDICATORS:
-        if str.startswith(comment):
-            return True
-    return False
-
-# Main program #
 extensions_map = dict((k,0) for k in VALID_EXSTENSIONS)
 
+# Main Algorithm
 for root, dirs, files in os.walk("./"):
     for file in files:
         fileName, fileExtension = os.path.splitext(file)
         fullPath = os.path.join(root, file)
         if fileExtension in VALID_EXSTENSIONS:
-             extensions_map[fileExtension] += file_length(fullPath)
+            fileLength = fo.file_length(fullPath)
+            extensions_map[fileExtension] += fileLength
 
 print("Number of rows of code:")
 sorted_map = sorted(extensions_map.iteritems(), key=operator.itemgetter(1))
