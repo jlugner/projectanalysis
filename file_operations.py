@@ -13,6 +13,7 @@ def is_comment(str):
             return True
     return False
 
-#def in_file(file_path):
-#   with open(file_path) as f:
-        
+def search(file_path, param):
+    with open(file_path) as f:
+        for i, l in enumerate(f):
+            if param in l: print("Found '%s' in %s at row: %i" % (param, file_path, i+1))
