@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import os
 import operator
 import argparse
@@ -7,7 +6,7 @@ import file_operations as fo
 
 VALID_EXSTENSIONS  = [".h", ".hpp", ".c", ".cpp", ".py", ".java", ".rb", ".html", ".css", ".erb", ".m", ".hs"]
 
-# Main program, argument parsing#
+# Main program, argument parsing
 parser = argparse.ArgumentParser()
 parser.parse_args()
 
